@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby "2.2.3"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
@@ -25,6 +26,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'materialize-sass', '~> 0.97.5'
 
+# Postgres for heroku production environment
+gem 'pg' , group: :production
+
+gem 'rails_12factor', group: :production
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
