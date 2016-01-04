@@ -26,10 +26,14 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'materialize-sass', '~> 0.97.5'
 
+# HEROKU 
 # Postgres for heroku production environment
-gem 'pg' , group: :production
-
+gem 'pg', group: :production
+# heroku gem
 gem 'rails_12factor', group: :production
+#Heroku Server
+gem 'puma', group: :production
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
