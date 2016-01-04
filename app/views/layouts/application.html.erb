@@ -13,14 +13,14 @@
 	  <li><a href="#!">My Profile</a></li>
 	  <li><a href="#!">My Lessons</a></li>
 	  <li class="divider"></li>
-	  <li><a href="#!">Log Out</a></li>
+	  <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
 	</ul>
 	<!-- Dropdown Structure - mobile  -->
 	<ul id="dropdown2" class="dropdown-content">
 	  <li><a href="#!">My Profile</a></li>
 	  <li><a href="#!">My Lessons</a></li>
 	  <li class="divider"></li>
-	  <li><a href="#!">Log Out</a></li>
+	  <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
 	</ul>
 
 	<header>
@@ -31,19 +31,25 @@
 			  <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 			  <ul class="right hide-on-med-and-down">
 			    <li><a href="#">Lessons</a></li>
-			    <li><a href="#">Sign Up</a></li>
-			    <li><a href="#">Login</a></li>
-			    <!-- Native Dropdown Trigger -->
-      			<!-- Dropdown Trigger -->
-				      <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Joe Minock<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
+			     <% if(!user_signed_in?) %>
+				    <li><%= link_to "Sign Up", new_user_registration_path %></li>
+				    <li><%= link_to "Login", new_user_session_path %></li>
+			    <% else %>
+			    	<!-- Native Dropdown Trigger -->
+			      	<li><a class="dropdown-button" href="#!" data-activates="dropdown1">Joe Minock<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
+			    <% end %>
 			  </ul>
+			  
+
 			  <ul class="side-nav" id="mobile-demo">
 			    <li><a href="#">Lessons</a></li>
-			    <li><a href="#">Sign Up</a></li>
-			    <li><a href="#">Login</a></li>
-			    <!-- Mobile Dropdown Trigger -->
-      			<!-- Dropdown Trigger -->
-			      <li><a class="dropdown-button" href="#!" data-activates="dropdown2">Joe Minock<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
+			    <% if(!user_signed_in?) %>
+				    <li><%= link_to "Sign Up", new_user_registration_path %></li>
+				    <li><%= link_to "Login", new_user_session_path %></li>
+			    <% else %>
+			    	<!-- Native Dropdown Trigger -->
+			      	<li><a class="dropdown-button" href="#!" data-activates="dropdown2">Joe Minock<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
+			    <% end %>
 			  </ul>
 			</div>
 			</div>

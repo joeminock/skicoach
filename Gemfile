@@ -34,6 +34,10 @@ gem 'rails_12factor', group: :production
 #Heroku Server
 gem 'puma', group: :production
 
+#AUTHENTICATION
+#Devise for user authentication Management
+gem 'devise', '~> 3.5', '>= 3.5.3'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
