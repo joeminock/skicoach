@@ -44,6 +44,9 @@ gem 'puma', group: :production
 #Devise for user authentication Management
 gem 'devise', '~> 3.5', '>= 3.5.3'
 
+#APPLICATION ADMINISTRATION
+gem 'activeadmin', github: 'activeadmin'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
