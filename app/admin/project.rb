@@ -1,5 +1,5 @@
 ActiveAdmin.register Project do
-	permit_params :name, :content, :price, :image
+	permit_params :name, :s_description, :l_description, :price, :image
 
 	show do |t|
 		attributes_table do
