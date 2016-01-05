@@ -26,6 +26,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'materialize-sass', '~> 0.97.5'
 
+# NOTIFICATIONS
+gem 'toastr-rails', '~> 1.0', '>= 1.0.3'
+
 # HEROKU 
 # Postgres for heroku production environment
 gem 'pg', group: :production
