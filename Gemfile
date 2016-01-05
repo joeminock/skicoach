@@ -32,14 +32,6 @@ gem 'toastr-rails', '~> 1.0', '>= 1.0.3'
 #MAILERS
 gem 'mandrill-api', '~> 1.0', '>= 1.0.53', require: 'mandrill'
 
-# HEROKU 
-# Postgres for heroku production environment
-gem 'pg', group: :production
-# heroku gem
-gem 'rails_12factor', group: :production
-#Heroku Server
-gem 'puma', group: :production
-
 #AUTHENTICATION
 #Devise for user authentication Management
 gem 'devise', '~> 3.5', '>= 3.5.3'
@@ -50,6 +42,19 @@ gem 'active_skin', '~> 0.0.12'
 
 #IMAGE MANAGEMENT
 gem 'paperclip', '~> 4.3', '>= 4.3.2'
+
+#AMAZON WEB SERVICES
+gem 'aws-sdk', '~> 2.2', '>= 2.2.8'
+
+# PRODUCTION ENV
+group :production do 
+	# Postgres for heroku production environment
+	gem 'pg'
+	# heroku gem
+	gem 'rails_12factor'
+	#Heroku Server
+	gem 'puma'
+end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
