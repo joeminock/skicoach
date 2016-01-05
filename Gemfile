@@ -44,7 +44,7 @@ gem 'active_skin', '~> 0.0.12'
 gem 'paperclip', '~> 4.3', '>= 4.3.2'
 
 #AMAZON WEB SERVICES
-gem 'aws-sdk', '~> 2.2', '>= 2.2.8'
+gem 'aws-sdk', '~> 1'
 
 # PRODUCTION ENV
 group :production do 
