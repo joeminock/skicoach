@@ -29,6 +29,9 @@ gem 'materialize-sass', '~> 0.97.5'
 # NOTIFICATIONS
 gem 'toastr-rails', '~> 1.0', '>= 1.0.3'
 
+#MAILERS
+gem 'mandrill-api', '~> 1.0', '>= 1.0.53', require: 'mandrill'
+
 # HEROKU 
 # Postgres for heroku production environment
 gem 'pg', group: :production
