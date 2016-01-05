@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+#MATERIALIZE CSS / SASS FRAMEWORK
 gem 'materialize-sass', '~> 0.97.5'
 
 # NOTIFICATIONS
@@ -43,8 +44,11 @@ gem 'active_skin', '~> 0.0.12'
 #IMAGE MANAGEMENT
 gem 'paperclip', '~> 4.3', '>= 4.3.2'
 
-#AMAZON WEB SERVICES
+#AMAZON WEB SERVICES - NOTE: ROLLED BACK TO PRE 2 version due to bugs.
 gem 'aws-sdk', '~> 1'
+
+#SEO FRIENDLY URLS
+gem 'friendly_id', '~> 5.1'
 
 # PRODUCTION ENV
 group :production do 

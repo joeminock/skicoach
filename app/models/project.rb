@@ -1,4 +1,11 @@
 class Project < ActiveRecord::Base
+	extend FriendlyId
+	friendly_id :name, use: [:slugged, :finders]
+
+	def should_generate_new_friendly_id?
+    	name_changed?
+  	end
+
 	has_many :tasks
 
 	validates :name, presence: true, length: {maximum: 75}
