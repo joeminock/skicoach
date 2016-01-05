@@ -1,13 +1,13 @@
 <!-- Dropdown Structure - native -->
 	<ul id="dropdown1" class="dropdown-content">
-	  <li><a href="#!">My Profile</a></li>
+	  <li><%= link_to "My Profile", edit_user_registration_path %></li>
 	  <li><a href="#!">My Lessons</a></li>
 	  <li class="divider"></li>
 	  <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
 	</ul>
 <!-- Dropdown Structure - mobile  -->
 	<ul id="dropdown2" class="dropdown-content">
-	  <li><a href="#!">My Profile</a></li>
+	  <li><%= link_to "My Profile", edit_user_registration_path %></li>
 	  <li><a href="#!">My Lessons</a></li>
 	  <li class="divider"></li>
 	  <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
@@ -17,7 +17,7 @@
 	<nav class="blue z-depth-2">
 		<div class="container">
 			<div class="nav-wrapper">
-				<a href="#!" class="brand-logo">SkiCoach.me</a>
+				<a href="/" class="brand-logo">SkiCoach.me</a>
 				<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 				<ul class="right hide-on-med-and-down">
 					<li><a href="#">Lessons</a></li>
@@ -26,7 +26,7 @@
 					<li><%= link_to "Login", new_user_session_path %></li>
 				<% else %>
 					<!-- Native Dropdown Trigger -->
-					<li><a class="dropdown-button" href="#!" data-activates="dropdown1"><%= current_user.email %><i class="mdi-navigation-arrow-drop-down right"></i></a></li>
+					<li><a class="dropdown-button" href="#!" data-activates="dropdown1"><%= current_user.name %><i class="mdi-navigation-arrow-drop-down right"></i></a></li>
 				<% end %>
 				</ul>
 
@@ -37,8 +37,8 @@
 					<li><%= link_to "Sign Up", new_user_registration_path %></li>
 					<li><%= link_to "Login", new_user_session_path %></li>
 				<% else %>
-					<!-- Native Dropdown Trigger -->
-					<li><a class="dropdown-button" href="#!" data-activates="dropdown2"><%= current_user.email %><i class="mdi-navigation-arrow-drop-down right"></i></a></li>
+					<!-- Mobile Dropdown Trigger -->
+					<li><a class="dropdown-button" href="#!" data-activates="dropdown2"><%= current_user.name %><i class="mdi-navigation-arrow-drop-down right"></i></a></li>
 				<% end %>
 				</ul>
 			</div>
