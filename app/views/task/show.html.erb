@@ -1,4 +1,28 @@
-<h1><%= @task.title %></h1>
-
-<p><%= @task.note %></p>
-<p><%= @task.video %></p>
+<br />
+<h5><%= @task.project.name %>: <%= @task.title %></h5>
+<hr>
+<%= @task.description %>
+<br />
+<br />
+<div class="row" data-no-turbolink>
+	<div class="col m4">
+		<div class="card z-depth-2">
+			<div class="card-content teal-text">
+				<h5>Project Tasks</h5>
+				<div class="collection">
+					<% @tasks.each do |task| %>
+						<% if task.header %>
+							<div class="collection-item active">
+								<i class="mdi-social-school">  <%= task.title %></i>
+							</div>
+						  <% else %>
+						  	<%= link_to [task.project, task], class: "collection-item" do %>
+						  		<i class="mdi-av-play-circle-outline">  <%= task.title %></i>
+						  	<% end %>
+						<% end %>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
