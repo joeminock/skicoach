@@ -5,16 +5,16 @@
 
 	<% @projects.each do |project| %>
 		<%= link_to project do %>
-			<div class="col s12 m6 l6">
+			<div class="col s12 m6 l4">
 				<div class="card hoverable">
 
 					<div class="card-image">
 						<%= image_tag project.image %>
 					</div>
 						
-					<div class="card-content" style="height: 8em">
+					<div class="card-content" style="height: 10em">
 						<p class="flow-text grey-text text-darken-4"><%= project.name %></p>
-						<pclass="grey-text text-darken-4"><%= project.s_description %></p>
+						<p class="grey-text text-darken-4"><%= project.s_description %></p>
 						
 					</div>	
 					
