@@ -18,7 +18,7 @@
 		<div class="container">
 			<div class="nav-wrapper">
 				<a href="/" class="brand-logo">SkiCoach.me</a>
-				<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+				<a href="#" data-activates="mobile-demo" class="button-collapse" ><i class="mdi-navigation-menu"></i></a>
 				<ul class="right hide-on-med-and-down">
 					<li><%= link_to "Choose a Lesson", project_index_path %></li>
 				<% if(!user_signed_in?) %>
@@ -26,7 +26,7 @@
 					<li><%= link_to "Login", new_user_session_path, class: "waves-effect waves-light btn" %></li>
 				<% else %>
 					<!-- Native Dropdown Trigger -->
-					<li><a class="dropdown-button valign-wrapper" href="#!" data-activates="dropdown1">
+					<li><a class="dropdown-button valign-wrapper" data-beloworigin="true" href="#!" data-activates="dropdown1">
 						<%= image_tag avatar_url(current_user), class: "circle responsive-img" %>&nbsp;
 						<%= current_user.name %><i class="mdi-navigation-arrow-drop-down right"></i></a></li>
 				<% end %>
@@ -40,7 +40,7 @@
 					<li><%= link_to "Login", new_user_session_path %></li>
 				<% else %>
 					<!-- Mobile Dropdown Trigger -->
-					<li><a class="dropdown-button valign-wrapper" href="#!" data-activates="dropdown2">
+					<li><a class="dropdown-button valign-wrapper" data-beloworigin="true" href="#!" data-activates="dropdown2">
 						<%= image_tag avatar_url(current_user), class: "circle responsive-img" %>&nbsp;
 						<%= current_user.name %><i class="mdi-navigation-arrow-drop-down right"></i></a></li>
 				<% end %>
