@@ -4,7 +4,7 @@
 <%= @task.description %>
 <br />
 <br />
-<div class="row" >
+<div class="row" data-no-turbolink>
 	<div class="hide-on-med-and-down">
 		<div class="col l4 ">
 			<div class="card z-depth-2">
@@ -99,7 +99,7 @@
 	</div>
 </div>
 
-<script src="http://fast.wistia.net/static/E-v1.js"></script>
+<script src="https://fast.wistia.net/static/E-v1.js"></script>
 
 <script>
 	wistiaEmbed = Wistia.embed("<%= @task.video %>", {
