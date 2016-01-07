@@ -12,17 +12,18 @@ ActiveAdmin.register Task do
 
 	index do
 		selectable_column
-		column :header
-		column :title
-		column :tag
 		column :project
+		column :title
+		column :header
+		column :tag
+		
 
 		actions
 	end
 
 	form do |f|
 		f.inputs do
-			input :project, label: "Project"
+			input :project, label: "Name"
 			input :title, label: "Title"
 			input :description, label: "Description"
 			input :note, label: "Details"
