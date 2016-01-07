@@ -5,24 +5,109 @@
 <br />
 <br />
 <div class="row" data-no-turbolink>
-	<div class="col m4">
-		<div class="card z-depth-2">
-			<div class="card-content teal-text">
-				<h5>Project Tasks</h5>
-				<div class="collection">
-					<% @tasks.each do |task| %>
-						<% if task.header %>
-							<div class="collection-item active">
-								<i class="mdi-social-school">  <%= task.title %></i>
-							</div>
-						  <% else %>
-						  	<%= link_to [task.project, task], class: "collection-item" do %>
-						  		<i class="mdi-av-play-circle-outline">  <%= task.title %></i>
-						  	<% end %>
+	<div class="hide-on-med-and-down">
+		<div class="col l4 ">
+			<div class="card z-depth-2">
+				<div class="card-content teal-text">
+					<h5>Lesson Tasks</h5>
+					<div class="collection">
+						<% @tasks.each do |task| %>
+							<% if task.header %>
+								<div class="collection-item active">
+									<i class="mdi-social-school">  <%= task.title %></i>
+								</div>
+							  <% else %>
+							  	<%= link_to [task.project, task], class: "collection-item" do %>
+							  		<i class="mdi-av-play-circle-outline">  <%= task.title %></i>
+							  	<% end %>
+							<% end %>
 						<% end %>
-					<% end %>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+
+	<div class="col s12 m12 l8">
+		<div class="card z-depth-2">		
+			<div id="wistia_<%= @task.video %>"></div>
+			
+			<div class="card-action grey-text text-darken-4 center">
+				<span>Video Speed:</span>
+              	<button class="btn btn-primary" onclick="setPlaySpeed(1)">Normal Speed</button>
+              	<button class="btn btn-primary" onclick="setPlaySpeed(1.25)">1.25x</button>
+              	<button class="btn btn-primary" onclick="setPlaySpeed(2)">Ligety Speed</button>
+			</div>
+			<hr>
+			<div class="row">
+				<div class="container">
+					<div class="col m6">
+						
+						<% if !@prev_task.nil? %>
+							<%= link_to "< Previous Task", [@prev_task.project, @prev_task], class: "btn btn-primary"  %>
+						<% else %>
+							&nbsp;
+						<% end %>
+					</div>
+
+					<div class="col m6">
+						<% if !@next_task.nil? %>
+							<span class="right">
+							<%= link_to "Next Task >", [@next_task.project, @next_task], class: "btn btn-primary"  %>
+							</span>
+						<% end %>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="hide-on-large-only">
+			<div class="col s12 m6 ">
+				<div class="card z-depth-2">
+					<div class="card-content teal-text">
+						<h5>Lesson Tasks</h5>
+						<div class="collection">
+							<% @tasks.each do |task| %>
+								<% if task.header %>
+									<div class="collection-item active">
+										<i class="mdi-social-school">  <%= task.title %></i>
+									</div>
+								  <% else %>
+								  	<%= link_to [task.project, task], class: "collection-item" do %>
+								  		<i class="mdi-av-play-circle-outline">  <%= task.title %></i>
+								  	<% end %>
+								<% end %>
+							<% end %>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+			<div class="col s12 m6 l12">
+				<div class="card z-depth-2">
+				
+					<div class="card-content teal-text">
+						<h5>Task Details</h5>
+						<div class="card-action">
+							<%= @task.note %>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+		</div>
+	</div>
 </div>
+
+<script src="http://fast.wistia.net/static/E-v1.js"></script>
+
+<script>
+	wistiaEmbed = Wistia.embed("<%= @task.video %>", {
+	  videoQuality: "hd-only",
+	  videoFoam: true
+	});
+
+	function setPlaySpeed(speed) {
+		wistiaEmbed.playbackRate(speed);
+	}
+</script>

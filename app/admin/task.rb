@@ -21,15 +21,4 @@ ActiveAdmin.register Task do
 		actions
 	end
 
-	form do |f|
-		f.inputs do
-			input :project, label: "Name"
-			input :title, label: "Title"
-			input :description, label: "Description"
-			input :note, label: "Details"
-			input :video, label: "Video"
-			input :header, label: "Header"
-		end
-		actions
-	end
 end
