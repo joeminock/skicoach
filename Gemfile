@@ -39,7 +39,7 @@ gem 'devise', '~> 3.5', '>= 3.5.3'
 
 #APPLICATION ADMINISTRATION
 gem 'activeadmin', github: 'activeadmin'
-gem 'active_skin', '~> 0.0.12'
+gem 'active_skin'
 gem 'active_admin-sortable_tree', '~> 0.2.1'
 
 #IMAGE MANAGEMENT

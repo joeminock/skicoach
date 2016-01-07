@@ -241,7 +241,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_admin-sortable_tree (~> 0.2.1)
-  active_skin (~> 0.0.12)
+  active_skin
   activeadmin!
   aws-sdk (~> 1)
   byebug
