@@ -12,11 +12,11 @@
 					<% if user_signed_in? %>	
 						<%= form_tag free_path do %>
 							<%= hidden_field_tag 'project_id', @project.id %>
-							<button type="submit" class="btn indigo accent-4">Take this Project</button>
+							<button type="submit" class="btn pink darken-2">Take this Project</button>
 						<% end %>
 					<% else %>
 						<%= link_to new_user_session_path do %>	
-							<button type="submit" class="btn indigo accent-4">Take this Project</button>
+							<button type="submit" class="btn pink darken-2">Take this Project</button>
 						<% end %>
 					<% end %>
 
@@ -49,6 +49,8 @@
 			</div>
 			<div class="card-content grey-text text-darken-4">
 				<h5><%= @project.name %></h5>
+				<span id="average_rating"></span>
+				<p> <%= @reviews.count %> <%= @reviews.count > 1? "Reviews" : "Review" %></p>
 				<hr>
 				<%= @project.l_description %>
 
@@ -67,7 +69,21 @@
 				</div>
 
 			</div>
+
+			<div class="card-content">
+				<h4>Reviews</h4>
+				<div><%= render 'reviews/form' if @joined && !@hasReview %></div>
+				<div><%= render 'reviews/index' %></div>
+			</div>
 		</div>
 	</div>
 
 </div>
+
+<script>
+	$('#average_rating').raty({
+		path: '/assets',
+		readOnly: true,
+		score: <%= @project.average_rating %>
+	});
+</script>
