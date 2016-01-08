@@ -1,6 +1,48 @@
 <div class="row">
-	
-	<div class="col m8 s12">
+	<div class="col m4">
+		<div class="card z-depth-2">
+			
+			<% if !@joined %>	
+
+				<div class="center">
+					<h1><%= @project.price == 0? "Free" : "$#{@project.price}" %></h1>
+				</div>
+				<div class="card-action center">
+
+					<% if user_signed_in? %>	
+						<%= form_tag free_path do %>
+							<%= hidden_field_tag 'project_id', @project.id %>
+							<button type="submit" class="btn indigo accent-4">Take this Project</button>
+						<% end %>
+					<% else %>
+						<%= link_to new_user_session_path do %>	
+							<button type="submit" class="btn indigo accent-4">Take this Project</button>
+						<% end %>
+					<% end %>
+
+				</div>
+			
+			<% else %>
+
+				<div class="card-content center">
+					<%= image_tag avatar_url(current_user), class: "circle responsive-img avatar-medium" %><br/>
+					<h5><%= current_user.name %></h5>
+				</div>
+				<div class="card-action center">
+					<% @users.each do |u| %>
+						<span class="valign-wrapper">
+							<%= image_tag avatar_url(u), class: "circle responsive-img avatar-small" %>&nbsp;
+							<%= u.name %>	
+						</span><br/>
+					<% end %>
+				</div>
+
+			<% end %>
+
+		</div>
+	</div>
+
+	<div class="col m8">
 		<div class="card z-depth-2">
 			<div class="card-image">
 				<%= image_tag @project.image %>
@@ -10,7 +52,7 @@
 				<hr>
 				<%= @project.l_description %>
 
-				<div class="collection">
+				<div class="collection" data-no-turbolink>
 					<% @tasks.each do |task| %>
 						<% if task.header %>
 							<div class="collection-item active">
@@ -24,23 +66,6 @@
 					<% end %>
 				</div>
 
-			</div>
-		</div>
-	</div>
-
-	<div class="col m4 s12">
-		<div class="card z-depth-2">
-			<div class="card-content">
-				<div class="center">
-					<p>Premium Lesson Only</p>
-					<h1>$<%= @project.price %></h1>
-					<p>For a Limited Time</p>
-				</div>
-				<div class="card-action center">
-					<button class="btn waves-effect waves-light-green accent-3">
-						Take this Lesson
-					</button>
-				</div>
 			</div>
 		</div>
 	</div>

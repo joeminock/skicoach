@@ -8,6 +8,9 @@ class Project < ActiveRecord::Base
 
 	has_many :tasks
 
+	has_many :subscriptions
+	has_many :users, through: :subscriptions
+
 	validates :name, presence: true, length: {maximum: 40}
 	validates :s_description, presence: true, length: {maximum: 150}
 	validates :l_description, presence: true, length: {maximum: 500}

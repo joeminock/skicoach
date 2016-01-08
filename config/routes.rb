@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   devise_for :users
 
   get 'pages/about'
+
+  post '/free' => 'charge#free'
+
   root 'project#index'
   resources :project do
     resources :task, only: [:show]
