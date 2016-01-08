@@ -1,8 +1,8 @@
 ActiveAdmin.register Task do
-		permit_params :tag, :title, :description, :note, :video, :header, :project_id
+	permit_params :title, :note, :video, :header, :tag, :project_id
 
 	sortable tree: false,
-			 sorting_attribute: :tag
+						sorting_attribute: :tag
 
 	index :as => :sortable do
 		label :title
@@ -10,13 +10,24 @@ ActiveAdmin.register Task do
 		actions
 	end
 
-	index do
+	index do 
 		selectable_column
-		column :project
-		column :title
 		column :header
+		column :title
 		column :tag
-		
+		column :project
+
+		actions
+	end
+
+	form do |f|
+		f.inputs do
+			input :project, label: "Project"
+			input :title, label: "Title"
+			input :note, label: "Note"
+			input :video, label: "video"
+			input :header, label: "Header"
+		end
 
 		actions
 	end
