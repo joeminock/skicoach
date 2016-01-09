@@ -14,7 +14,7 @@
 						<% @tasks.each do |task| %>
 							<% if task.header %>
 								<div class="collection-item active indigo darken-4">
-									<i class="mdi-social-school"><%= task.title %></i>
+									<i class="mdi-social-school"> <%= task.title %></i>
 								</div>
 							  <% else %>
 							  	<%= link_to [task.project, task], class: "collection-item" do %>
