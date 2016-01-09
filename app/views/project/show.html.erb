@@ -12,11 +12,11 @@
 					<% if user_signed_in? %>	
 						<%= form_tag free_path do %>
 							<%= hidden_field_tag 'project_id', @project.id %>
-							<button type="submit" class="btn pink darken-2">Take this Project</button>
+							<button type="submit" class="btn indigo accent-4">Take this Project</button>
 						<% end %>
 					<% else %>
 						<%= link_to new_user_session_path do %>	
-							<button type="submit" class="btn pink darken-2">Take this Project</button>
+							<button type="submit" class="btn indigo accent-4">Take this Project</button>
 						<% end %>
 					<% end %>
 
@@ -75,7 +75,7 @@
 		    	<div class="collection" data-no-turbolink>
 						<% @tasks.each do |task| %>
 							<% if task.header %>
-								<div class="collection-item active">
+								<div class="collection-item active indigo darken-4">
 									<i class="mdi-social-school"> <%= task.title %></i>
 								</div>
 							<% else %>
