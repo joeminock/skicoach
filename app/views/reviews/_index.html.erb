@@ -1,38 +1,38 @@
 <% if @reviews.blank? %>
 	<span class="center"><h4>No Reviews for this Lesson yet. Would you like to leave the first one?</h4></span>
 <% end %>
+<div class="collection" data-no-turbolink>
+	<% @reviews.order("id desc").each do |r| %>
+		<div class="row">
+			<div class="collection-item">
+				<div class="col m1">
+					<%= image_tag avatar_url(r.user), class: "circle responsive-img avatar-small" %>
+				</div>
 
-<% @reviews.order("id desc").each do |r| %>
-	<hr>
-	<div class="row">
-
-		<div class="col m1">
-			<%= image_tag avatar_url(r.user), class: "circle responsive-img avatar-small" %>
+				<div class="col m10">
+					<div>
+						<strong><%= r.user.name %></strong>				
+						<span class="right"><%= timeago(r.created_at) %></span>	
+					</div>
+					<div id="stars_<%= r.id %>"></div>
+					<div><%= r.comment %></div>
+					<div>
+						<%= link_to "Remove", [@project, r], method: :delete, data: {confirm: "Are you sure?"} if current_user && current_user.id == r.user.id %>
+					</div>
+				</div>
+			</div>
 		</div>
 
-		<div class="col m10">
-			<div>
-				<strong><%= r.user.name %></strong>				
-				<span class="right"><%= timeago(r.created_at) %></span>	
-			</div>
-			<div id="stars_<%= r.id %>"></div>
-			<div><%= r.comment %></div>
-			<div>
-				<%= link_to "Remove", [@project, r], method: :delete, data: {confirm: "Are you sure?"} if current_user && current_user.id == r.user.id %>
-			</div>
-			
-		</div>
-	</div>
+		<script>
+			$('#stars_<%= r.id %>').raty({
+				path: '/assets',
+				readOnly: true,
+				score: <%= r.star %>
+			});
+		</script>
 
-	<script>
-		$('#stars_<%= r.id %>').raty({
-			path: '/assets',
-			readOnly: true,
-			score: <%= r.star %>
-		});
-	</script>
-
-<% end %>
+	<% end %>
+</div>	
 
 <script>
 	$(function() {

@@ -51,6 +51,9 @@ gem 'aws-sdk', '~> 1'
 #SEO FRIENDLY URLS
 gem 'friendly_id', '~> 5.1'
 
+#STRIPE PAYMENT INTEGRATION
+gem 'stripe'
+
 # PRODUCTION ENV
 group :production do 
 	# Postgres for heroku production environment

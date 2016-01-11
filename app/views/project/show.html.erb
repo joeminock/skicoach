@@ -1,101 +1,261 @@
+<br />
+<h5><%= @project.name %></h5>
+<hr>
 <div class="row">
-	<div class="col m4">
-		<div class="card z-depth-2">
-			
-			<% if !@joined %>	
+	<div class="col l4 m6 s12">
+		<% if !@joined %>
+			<div class="card z-depth 2">
 
-				<div class="center">
-					<h1><%= @project.price == 0? "Free" : "$#{@project.price}" %></h1>
+				<div class="card-action center">
+					<h5>Project Price</h5>
+					<h2><%= @project.price == 0? "Free!" : "$#{@project.price}" %></h2>
 				</div>
 				<div class="card-action center">
 
-					<% if user_signed_in? %>	
-						<%= form_tag free_path do %>
-							<%= hidden_field_tag 'project_id', @project.id %>
-							<button type="submit" class="btn indigo accent-4">Take this Project</button>
+					<% if user_signed_in? %>
+						
+						<% if @project.price == 0 %>
+							<%= form_tag free_path do %>
+								<%= hidden_field_tag 'project_id', @project.id %>
+								<button type="submit" class="btn waves-effect waves-light indigo accent-4">Get Started!</button>
+							<% end %>
+						<% else %>
+							<%= form_tag pay_path, id:'chargeForm' do %>
+								<script src="https://checkout.stripe.com/checkout.js"></script>
+								<%= hidden_field_tag 'stripeToken' %>
+								<%= hidden_field_tag 'stripeEmail' %>
+								<%= hidden_field_tag 'project_id', @project.id %>
+
+								<button id="customButton" type="button" class="btn waves-effect waves-light indigo accent-4">Get Started!</button><br />
+
+								<script>
+								  var handler = StripeCheckout.configure({
+								    key: '<%= ENV['STRIPE_PUBLIC_KEY'] %>',
+								    token: function(token, arg) {
+								      $('#stripeToken').val(token.id);
+								      $('#stripeEmail').val(token.email);
+								      $('#chargeForm').submit();
+								    }
+								  });
+
+								  $('#customButton').on('click', function(e) {
+								    handler.open({
+								      name: 'Startbox',
+								      description: '<%= @project.name %>',
+								      amount: '<%= @project.price_in_cents %>',
+								      email: '<%= current_user.email %>'
+								    });
+								    e.preventDefault();
+								  });
+								</script>
+							<% end %>
+
 						<% end %>
-					<% else %>
-						<%= link_to new_user_session_path do %>	
-							<button type="submit" class="btn indigo accent-4">Take this Project</button>
+
+					<% else	%>
+						<%= link_to new_user_session_path do %>
+							<button type="submit" class="btn waves-effect waves-light indigo accent-4">Get Started!</button>
 						<% end %>
 					<% end %>
 
 				</div>
-			
-			<% else %>
+			</div>
+			<div class="card z-depth 2">
+				<div class="card-content">
+					<h5><i class="mdi-editor-insert-emoticon"></i> Join 200 Students!</h5>
+					<ul class="collection">
+				      <li class="collection-item">Target Audience: </li>
+				      <li class="collection-item">Time to Complete: </li>
+				      
+				    </ul>
 
-				<div class="card-content center">
-					<%= image_tag avatar_url(current_user), class: "circle responsive-img avatar-medium" %><br/>
-					<h5><%= current_user.name %></h5>
 				</div>
-				<div class="card-action center">
+			</div>
+			<div class="card z-depth 2">
+				<div class="card-action">
+					<h5>Early Adopter Advantage...</h5>
+					<ul class="collection">
+				      <li class="collection-item"><i class="mdi-action-autorenew"></i>Lifetime Project Access</li>
+				      <li class="collection-item"><i class="mdi-hardware-phonelink"></i> View on All Devices</li>
+				      <li class="collection-item"><i class="mdi-communication-forum"></i> Unlimited Discussion Access</li>
+				    </ul>
+				</div>
+			</div>
+
+		<% else %>
+
+			<div class="card z-depth 2">
+				<div class="card-action teal-text darken-3 center">
+					<%= image_tag avatar_url(current_user), class: "circle responsive-img avatar-medium" %><br />
+					<h5>Hi, <%= current_user.name %></h5>
+				</div>
+				<div class="card-content teal-text">
+					<ul class="collection with-header">
+				      <li class="collection-header center"><h6>SkiCoach.me Stats</h6></li>
+				       <li class="collection-item">Skill Level:  <i class="mdi-image-filter-1"></i>  <i class="mdi-image-filter-none">  </i><i class="mdi-image-filter-none">  </i> <i class="mdi-image-filter-none">  </i> <i class="mdi-image-filter-none"> </i></li>
+				      <li class="collection-item"><i class="mdi-action-thumb-up"></i>  #15 of 200 Doing This Project!</li>
+				      <li class="collection-item"><i class="mdi-action-grade"></i>  First 1000 Active Users!</li>
+				    </ul>
+				</div>
+			</div>
+			<div class="card z-depth 2">
+				<div class="card-content teal-text">
+					<h5>You Are An Early Adopter</h5>
+					<ul class="collection">
+				      <li class="collection-item"><i class="mdi-action-autorenew"></i>  Lifetime Project Access</li>
+				      <li class="collection-item"><i class="mdi-hardware-phonelink"></i>  View on All Devices</li>
+				      <li class="collection-item"><i class="mdi-communication-forum"></i>  Unlimited Forum Support</li>
+				    </ul>
+				</div>
+			</div>
+			<div class="card z-depth 2">
+				<div class="card-action teal-text darken-3 center">
+					<h5>Student List</h5>
+				</div>
+				<div class="card-action teal-text">
 					<% @users.each do |u| %>
 						<span class="valign-wrapper">
-							<%= image_tag avatar_url(u), class: "circle responsive-img avatar-small" %>&nbsp;
-							<%= u.name %>	
-						</span><br/>
+						<%= image_tag avatar_url(u), class: "responsive-img avatar-small" %>&nbsp;
+						<%= u.name %>
+						</span><br />
 					<% end %>
 				</div>
-
-			<% end %>
-
-		</div>
+			</div>
+		<% end %>
 	</div>
 
-	<div class="col m8">
-		<div class="card z-depth-2">
+	<div class="col l8 m6 s12">
+		<div class="card z-depth 2">
 			<div class="card-image">
 				<%= image_tag @project.image %>
 			</div>
 
 			<div class="row">
-		    <div class="col s12">
-		      <ul class="tabs">
-		        <li class="tab col s3"><a class="active" href="#about">About</a></li>
-		        <li class="tab col s3"><a href="#videos">Videos</a></li>
-		        <li class="tab col s3"><a href="#discussions">Discussions</a></li>
-		      </ul>
-		    </div>
-		    <div id="about" class="col s12">
-		    	<div class="card-content grey-text text-darken-4">
-						<h5><%= @project.name %></h5>
-						<span id="average_rating"></span>
-						<p> <%= @reviews.count %> <%= @reviews.count > 1? "Reviews" : "Review" %></p>
-						<hr>
-						<%= @project.l_description %>
+			    <div class="col s12">
+			      <ul class="tabs ">
+			        <li class="tab col s3"><a class="active" href="#about">About</a></li>
+			        <li class="tab col s3"><a href="#reviews">Reviews</a></li>
+			        <li class="tab col s3"><a href="#tasks">Project Tasks</a></li>
+			        <li class="tab col s3"><a href="#discussions">Discussion</a></li>
+			      </ul>
+			    </div>
+			</div>
+		</div>
 
-						<h4>Reviews</h4>
+
+	<!-- ABOUT SECTION DIV-->		
+		<div id="about">
+			<div class="card z-depth 2">
+				<div class="row">
+			    	<div class="card-content">
+					<h5><%= @project.name %></h5>
+					<span id="average_rating"></span>
+					<p> <%= @reviews.count %> <%= @reviews.count >1? "Reviews" : "Review" %></p>
+					<hr>
+					<%= @project.l_description %>
+					</div>
+			    </div>
+			</div>
+		</div>
+			    
+	<!-- REVIEWS SECTION DIV-->
+		<div id="reviews">
+			<div class="card z-depth 2">
+				<div class="row">
+			    	<div class="card-content">
+						<h5>Reviews</h5>
+						
+				
 						<div><%= render 'reviews/form' if @joined && !@hasReview %></div>
 						<div><%= render 'reviews/index' %></div>
-
 					</div>
-		    </div>
+			    </div>
+			</div>
+		</div>
 
-		    <div id="videos" class="col s12">
-		    	<div class="collection" data-no-turbolink>
-						<% @tasks.each do |task| %>
-							<% if task.header %>
-								<div class="collection-item active indigo darken-4">
-									<i class="mdi-social-school"> <%= task.title %></i>
-								</div>
-							<% else %>
-								<%= link_to [task.project, task], class: "collection-item" do %>
-									<%= task.title %>
+	<!-- TASKS SECTION DIV-->
+		<% if !@joined %>
+			<div id="tasks">
+				<div class="card z-depth 2">
+					<div class="row">
+				    	<div class="card-content">
+				    	<h5>Project Tasks</h5>
+				    	<p>Click Get Started to View Task Videos!</p>
+				    	</div>
+				  		<div class="col s12">
+					    	<div class="collection" data-no-turbolink>
+								<% @tasks.each do |task| %>
+									<% if task.header %>
+										<div class="collection-item active indigo accent-4">
+											<i class="mdi-social-school">  <%= task.title %></i>
+										</div>
+									  <% else %>
+										<div class="collection-item">
+											<i class="mdi-action-lock-outline">  <%= task.title %></i>
+										</div>
+										
+									<% end %>
 								<% end %>
-							<% end %>
-						<% end %>
+							</div>
+						</div>
 					</div>
-		    </div>
+				</div>
+			</div>
 
-		    <div id="discussions" class="col s12">
-		    	<!-- Discussion would be here -->
-		    </div>
-		  </div>
+		<% else %>
 
-			
+			<div id="tasks">
+				<div class="card z-depth 2">
+					<div class="row">
+				    	<div class="card-content">
+				    	<h5>Project Tasks</h5>
+				    	</div>
+				  		<div class="col s12">
+					    	<div class="collection" data-no-turbolink>
+								<% @tasks.each do |task| %>
+									<% if task.header %>
+										<div class="collection-item active indigo accent-4">
+											<i class="mdi-social-school">  <%= task.title %></i>
+										</div>
+									  <% else %>
+										<%= link_to [task.project, task], class: "collection-item" do %>
+											<i class="mdi-av-play-circle-outline">  <%= task.title %></i>
+										<% end %>
+									<% end %>
+								<% end %>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		<% end %>
+
+	<!-- DISCUSSION SECTION DIV-->
+		<div id="discussions">
+			<div class="card z-depth 2">
+				<div class="row">
+			    	<div class="card-content">
+			    	<H5>Project Discussion</H5>
+
+			    	<div id="disqus_thread"></div>
+						<script type="text/javascript">
+						    /* * * CONFIGURATION VARIABLES * * */
+						    var disqus_shortname = 'startbox';
+						    var disqus_identifier = '<%= @project.id %>';
+						    
+						    /* * * DON'T EDIT BELOW THIS LINE * * */
+						    (function() {
+						        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+						        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+						        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+						    })();
+						</script>
+						<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+			    	</div>
+			    </div>
+  			</div>	
 		</div>
 	</div>
-
 </div>
 
 <script>
