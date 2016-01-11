@@ -54,6 +54,9 @@ gem 'friendly_id', '~> 5.1'
 #STRIPE PAYMENT INTEGRATION
 gem 'stripe'
 
+#SECURE ENVIRONMENTAL VARIABLES
+gem 'figaro', '~> 1.1', '>= 1.1.1'
+
 # PRODUCTION ENV
 group :production do 
 	# Postgres for heroku production environment
