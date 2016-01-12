@@ -1,5 +1,5 @@
 ActiveAdmin.register Task do
-	permit_params :title, :note, :video, :header, :tag, :project_id, :description, :task_time
+	permit_params :title, :note, :video, :header, :tag, :project_id, :description
 
 
 	sortable tree: false,
@@ -28,7 +28,6 @@ ActiveAdmin.register Task do
 			input :description, label: "Description"
 			input :note, label: "Note"
 			input :video, label: "video"
-			input :task_time, label: "Task Time"
 			input :header, label: "Header"
 		end
 
