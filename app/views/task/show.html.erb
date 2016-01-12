@@ -19,12 +19,20 @@
     <meta property="og:image" content="" />
 <% end %>
 
-<br />
-<h5><%= @task.project.name %>: <%= @task.title %></h5>
-<hr>
-<%= @task.description %>
-<br />
-<br />
+<br/>
+<div class="row">
+	<div class="valign-wrapper">
+		<div class="col l6 m6 s12">
+			<h5><%= @task.project.name %>: <%= @task.title %></h5></h5>
+		</div>
+		<div class="col l6 m6 s12">
+			<div class="right-align">
+				<%= link_to "Back to Lessons", root_path %>
+			</div>
+		</div>
+	</div>
+</div>
+
 <div class="row" data-no-turbolink>
 	<div class="hide-on-med-and-down">
 		<div class="col l3 ">

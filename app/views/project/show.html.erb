@@ -19,11 +19,21 @@
     <meta property="og:image" content="<%= @project.image %>" />
 <% end %>
 
-<br />
-<h5><%= @project.name %></h5>
-<hr>
+<br/>
 <div class="row">
-	<div class="col l4 m6 s12">
+	<div class="valign-wrapper">
+		<div class="col l6 m6 s12">
+			<h5><%= @project.name %></h5>
+		</div>
+		<div class="col l6 m6 s12">
+			<div class="right-align">
+				<%= link_to "Back to Lessons List", root_path %>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col l4 m4 s12">
 		<% if !@joined %>
 			<div class="card z-depth 2">
 
@@ -82,9 +92,10 @@
 
 				</div>
 			</div>
+		<div class= "hide-on-small-only" >
 			<div class="card z-depth 2">
 				<div class="card-content">
-					<h5><i class="mdi-editor-insert-emoticon"></i> Join 200 Students!</h5>
+					<h5><i class="mdi-editor-insert-emoticon"></i> Join <%= @project.users.count %> Students!</h5>
 					<ul class="collection">
 				      <li class="collection-item">Target Audience: </li>
 				      <li class="collection-item">Time to Complete: </li>
@@ -103,9 +114,11 @@
 				    </ul>
 				</div>
 			</div>
+		</div>
 
 		<% else %>
 
+		<div class="hide-on-small-only">	
 			<div class="card z-depth 2">
 				<div class="card-action teal-text darken-3 center">
 					<%= image_tag avatar_url(current_user), class: "circle responsive-img avatar-medium" %><br />
@@ -143,10 +156,12 @@
 					<% end %>
 				</div>
 			</div>
+		</div>
+
 		<% end %>
 	</div>
 
-	<div class="col l8 m6 s12">
+	<div class="col l8 m8 s12">
 		<div class="card z-depth 2">
 			<div class="card-image">
 				<%= image_tag @project.image %>
@@ -156,8 +171,7 @@
 			    <div class="col s12">
 			      <ul class="tabs ">
 			        <li class="tab col s3"><a class="active" href="#about">About</a></li>
-			        <li class="tab col s3"><a href="#reviews">Reviews</a></li>
-			        <li class="tab col s3"><a href="#tasks">Project Tasks</a></li>
+			        <li class="tab col s3"><a href="#tasks">Lesson Tasks</a></li>
 			        <li class="tab col s3"><a href="#discussions">Discussion</a></li>
 			      </ul>
 			    </div>
@@ -174,16 +188,12 @@
 					<span id="average_rating"></span>
 					<p> <%= @reviews.count %> <%= @reviews.count >1? "Reviews" : "Review" %></p>
 					<hr>
-					<%= @project.l_description %>
+					<%= raw @project.l_description %>
 					</div>
 			    </div>
 			</div>
-		</div>
-			    
-	<!-- REVIEWS SECTION DIV-->
-		<div id="reviews">
 			<div class="card z-depth 2">
-				<div class="row">
+			    <div class="row">
 			    	<div class="card-content">
 						<h5>Reviews</h5>
 						
@@ -194,14 +204,14 @@
 			    </div>
 			</div>
 		</div>
-
+			    	
 	<!-- TASKS SECTION DIV-->
 		<% if !@joined %>
 			<div id="tasks">
 				<div class="card z-depth 2">
 					<div class="row">
 				    	<div class="card-content">
-				    	<h5>Project Tasks</h5>
+				    	<h5>Lesson Tasks</h5>
 				    	<p>Click Get Started to View Task Videos!</p>
 				    	</div>
 				  		<div class="col s12">
