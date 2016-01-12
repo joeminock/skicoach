@@ -25,7 +25,7 @@
 
 		<script>
 			$('#stars_<%= r.id %>').raty({
-				path: '/assets',
+				path: 'https://s3.amazonaws.com/skicoach/stars/',
 				readOnly: true,
 				score: <%= r.star %>
 			});
