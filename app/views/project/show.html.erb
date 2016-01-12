@@ -292,7 +292,7 @@
 
 <script>
 	$('#average_rating').raty({
-		path: '/assets',
+		path: 'https://s3.amazonaws.com/skicoach/stars/',
 		readOnly: true,
 		score: <%= @project.average_rating %>
 	});
