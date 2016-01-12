@@ -1,3 +1,24 @@
+% content_for :head do %>
+	<title><%= @project.name %> - SkiCoach.me</title>
+	<meta name="description" content="<%= @project.s_description %>" />
+
+	<!-- Twitter Card data --> 
+    <meta name="twitter:card" content="summary_large_image"> 
+    <meta name="twitter:site" content="@skicoachme"> 
+    <meta name="twitter:creator" content="@skicoachme">
+    <meta name="twitter:title" content="<%= @project.name %>"> 
+    <meta name="twitter:description" content="<%= @project.s_description %>">
+    <!-- Twitter summary card with large image must be at least 280x150px --> 
+    <meta name="twitter:image:src" content="<%= @project.image %>">
+
+    <!-- Open Graph data --> 
+    <meta property="og:site_name" content="Startbox" />
+    <meta property="og:type" contcontent="website" /> 
+    <meta property="og:title" content="<%= @project.name %>" />        
+    <meta property="og:description" content="<%= @project.s_description %>" /> 
+    <meta property="og:image" content="<%= @project.image %>" />
+<% end %>
+
 <br />
 <h5><%= @project.name %></h5>
 <hr>
