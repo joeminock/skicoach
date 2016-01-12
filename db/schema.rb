@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160108225144) do
+ActiveRecord::Schema.define(version: 20160112153639) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -107,6 +107,7 @@ ActiveRecord::Schema.define(version: 20160108225144) do
     t.datetime "updated_at",                  null: false
     t.integer  "tag"
     t.string   "slug"
+    t.string   "task_time"
   end
 
   add_index "tasks", ["project_id"], name: "index_tasks_on_project_id"
