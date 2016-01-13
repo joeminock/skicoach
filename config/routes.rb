@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   devise_for :users
 
   get 'pages/about'
+  get 'pages/terms'
+  get 'pages/privacy'
   get '/myprojects' => 'project#list'
   post '/free' => 'charge#free'
   post '/pay'  => 'charge#pay'
