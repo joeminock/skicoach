@@ -22,8 +22,8 @@
 				<ul class="right hide-on-med-and-down">
 					<li><%= link_to "Choose a Lesson", project_index_path %></li>
 				<% if(!user_signed_in?) %>
-					<li><%= link_to "Sign Up", new_user_registration_path %></li>
-					<li><%= link_to "Login", new_user_session_path, class: "waves-effect waves-light btn indigo accent-4" %></li>
+					<li><%= link_to "Sign Up", new_user_registration_path, class: "waves-effect waves-light btn indigo accent-4" %></li>
+					<li><%= link_to "Login", new_user_session_path %></li>
 				<% else %>
 					<!-- Native Dropdown Trigger -->
 					<li><a class="dropdown-button valign-wrapper" data-beloworigin="true" href="#!" data-activates="dropdown1">
