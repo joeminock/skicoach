@@ -236,9 +236,12 @@ Devise.setup do |config|
   config.sign_out_via = :delete
 
   # ==> OmniAuth
-  # Add a new OmniAuth provider. Check the wiki for more information on setting
-  # up on your models and hooks.
-  # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
+  require 'omniauth-google-oauth2'
+  config.omniauth :google_oauth2, ENV['GOOGLE_API_KEY'], ENV['GOOGLE_API_SECRET'], {access_type: "offline", approval_prompt: ""}
+
+  require 'omniauth-facebook'
+  config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET'], scope: 'email', info_fields: 'email,name'
+
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

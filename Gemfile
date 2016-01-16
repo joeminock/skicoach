@@ -36,6 +36,9 @@ gem 'mandrill-api', '~> 1.0', '>= 1.0.53', require: 'mandrill'
 #AUTHENTICATION
 #Devise for user authentication Management
 gem 'devise', '~> 3.5', '>= 3.5.3'
+gem 'omniauth', '~> 1.3', '>= 1.3.1'
+gem 'omniauth-google-oauth2', '~> 0.3.0'
+gem 'omniauth-facebook', '~> 3.0'
 
 #APPLICATION ADMINISTRATION
 gem 'activeadmin', github: 'activeadmin'
