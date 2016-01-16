@@ -6,9 +6,9 @@ Rails.application.routes.draw do
               :controllers => {:omniauth_callbacks => "omniauth_callbacks"}
 
   # Pages Controller Static Files
-  get '/about' => 'pages#about'
-  get '/terms' => 'pages#terms'
-  get '/privacy' => 'pages#privacy'
+  get 'pages/about'
+  get 'pages/terms'
+  get 'pages/privacy'
   get '/myprojects' => 'project#list'
   
 
