@@ -27,7 +27,7 @@
 					<li><%= link_to "Sign Up", new_user_registration_path, class: "waves-effect waves-light btn indigo accent-4" %></li>
 					
 				<% else %>
-					<li><%= link_to "Choose a Lesson", project_index_path, class: "waves-effect waves-light btn indigo accent-4" %></li>
+					<li><%= link_to "Lessons", project_index_path %></li>
 					<!-- Native Dropdown Trigger -->
 					<li><a class="dropdown-button valign-wrapper" data-beloworigin="true" href="#!" data-activates="dropdown1">
 						<%= image_tag avatar_url(current_user), class: "circle responsive-img" %>&nbsp;
