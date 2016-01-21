@@ -33,10 +33,17 @@ body {
     background-size: cover;
   }
 
-  .intro {
-    background: url('/assets/startbox_tools.jpg') no-repeat center center;
-    height: 500px
-    
+  .header_img {
+    background-image: url('//s3.amazonaws.com/skicoach/sliders/mateo_coman.jpeg');
+    background-position-x: center;
+    background-size: cover;
+    height: 600px;
+    }
+
+  section#intro {
+    background-color: rgba(26,35,126,0.5)
+    ; 
+    height: 600px;
   }
 
   .card {

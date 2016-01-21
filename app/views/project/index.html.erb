@@ -22,19 +22,24 @@
 <% if(!user_signed_in?) %>
 	<!-- Start Index Container -->
 <br />
+  <div class="header_img"> 
   <section id="intro">
-    <div class="intro">
+    
       <div class="container">
         <div class="row">
-          <br><br>
-          <h1 class="header center white-text">AWESOME SKI LESSONS...<br/> ANYWHERE, ANYTIME</h1>
-          <div class="row center">
-              <a href="#projects" class="btn-large waves-effect waves-light green lighten-1">Sign Up For My Free Account</a>
-          </div>
+          <div class="col m5 s12">
+            <br><br>
+            <h1 class="header white-text">SKI LESSONS...<br/> ANYWHERE, ANYTIME</h1>
+            <h5 class="header white-text">Extend the life of every ski lesson with video based drills and tasks that you can access at home, work, and on the ski lift.</h5>
+            <div class="row center">
+                <%= link_to "Sign Up For My Free Account", new_user_registration_path, class: "btn-large waves-effect waves-light btn indigo accent-4" %>
+            </div>
+            </div>
         <br><br>
-      </div>   
+         
     </div>
   </section>
+  </div>
   <!-- End Index Container -->
   <!-- Start How It Works Container -->
 <section id="how-it-works">
@@ -43,8 +48,8 @@
     <div class="container">
     <div class="row">
         <br><br>
-        <h2 class="header center teal-text text-lighten-2">How To Use SkiCoach.me</h2>
-         <h4 class="header center col s12 light">Whether you're handy or not, we've made it super fun and easy to take any project from start to finish.</h4>
+        <h2 class="header center blue-text text-darken-4">How To Use SkiCoach.me</h2>
+         <h4 class="header center col s12 light">Whether you're a pro or new to the sport of skiing, we've made it fun and easy to improve your skills.</h4>
       </div>
     
     <div class="section">
@@ -55,33 +60,33 @@
         <div class="col s12 m4">
           <div class="icon-block">
             <h2 class="center brown-text"><i class="mdi-hardware-computer"></i></h2>
-            <h5 class="center">Step 1. Select a Project</h5>
+            <h5 class="center">Step 1. Sign Up</h5>
 
-            <p class="light">Startbox video lessons and how-to projects cover everything from Pinterest® inspired craft projects to home improvement & honey do's. Click "Get Started!" on any project and you'll be celebrating success in no time!</p>
+            <p class="light">SkiCoach.me video lessons cover a range of skiing skills and drills designed to help a resourceful athlete or complement a regular training program. Whether you're a pro racer or beginner skier, you're sure to benefit from SkiCoach.me</p>
           </div>
         </div>
 
         <div class="col s12 m4">
           <div class="icon-block">
             <h2 class="center brown-text"><i class="mdi-av-play-circle-outline"></i></h2>
-            <h5 class="center">Step 2. Get Started!</h5>
+            <h5 class="center">Step 2. Select a Lesson</h5>
 
-            <p class="light">Each project comes with a comprehensive list of tools and necessary supplies. Once you're ready to go, each project how-to video is broken down into short, easy to understand video segments that you can watch as many times as you want!</p>
+            <p class="light">Each lesson comes with a comprehensive list of tools and necessary supplies. Once you're ready to go, each project how-to video is broken down into short, easy to understand video segments that you can watch as many times as you want!</p>
           </div>
         </div>
 
         <div class="col s12 m4">
           <div class="icon-block">
             <h2 class="center brown-text"><i class="mdi-editor-insert-emoticon"></i></h2>
-            <h5 class="center">Step 3. Smile, You Did It!</h5>
+            <h5 class="center">Step 3. Get Started!</h5>
 
-            <p class="light">There's nothing more fulfilling than doing something you've never done before. Startbox will help you Get Started and our easy to follow projects and video tasks make sure you finish with a smile everytime!</p>
+            <p class="light">There's nothing more fulfilling than doing something you've never done before. SkiCoach.me Lessons are available anywhere, anytime. Study them at home or watch them on the lift in between runs.</p>
           </div>
         </div>
       </div>
     
        <div class="row center">
-              <a href="#projects" class="btn-large waves-effect waves-light green lighten-1">Let's <i>Get Started</i></a>
+              <%= link_to "Sign Up For My Free Account", new_user_registration_path, class: "btn-large waves-effect waves-light btn indigo accent-4" %>
        </div>
       </div>
     </div>
@@ -91,7 +96,7 @@
 <!-- END How It Works Container -->
 <div class="container">
 <br />
-<h5>Find a Lesson, it's time to <i>Get Skiing</i></h5>
+<h5>Preview Lessons</i></h5>
 
 	<div class="row" data-no-turbolink>
 
