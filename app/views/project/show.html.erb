@@ -126,26 +126,17 @@
 				</div>
 				<div class="card-content teal-text">
 					<ul class="collection with-header">
-				      <li class="collection-header center"><h6>SkiCoach.me Stats</h6></li>
-				       <li class="collection-item">Skill Level:  <i class="mdi-image-filter-1"></i>  <i class="mdi-image-filter-none">  </i><i class="mdi-image-filter-none">  </i> <i class="mdi-image-filter-none">  </i> <i class="mdi-image-filter-none"> </i></li>
-				      <li class="collection-item"><i class="mdi-action-thumb-up"></i>  #15 of 200 Doing This Project!</li>
-				      <li class="collection-item"><i class="mdi-action-grade"></i>  First 1000 Active Users!</li>
-				    </ul>
-				</div>
-			</div>
-			<div class="card z-depth 2">
-				<div class="card-content teal-text">
-					<h5>You Are An Early Adopter</h5>
-					<ul class="collection">
+				      <li class="collection-item"><i class="mdi-action-autorenew"></i>  Early Adopter</li>
 				      <li class="collection-item"><i class="mdi-action-autorenew"></i>  Lifetime Project Access</li>
 				      <li class="collection-item"><i class="mdi-hardware-phonelink"></i>  View on All Devices</li>
-				      <li class="collection-item"><i class="mdi-communication-forum"></i>  Unlimited Forum Support</li>
+				      <li class="collection-item"><i class="mdi-communication-forum"></i>  Unlimited Discussion Access</li>
 				    </ul>
 				</div>
 			</div>
+			
 			<div class="card z-depth 2">
 				<div class="card-action teal-text darken-3 center">
-					<h5>Student List</h5>
+					<h5><%= @project.users.count %> Students</h5>
 				</div>
 				<div class="card-action teal-text">
 					<% @users.each do |u| %>
