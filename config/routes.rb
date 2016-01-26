@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   # Pages Controller Static Files
   get 'pages/about'
+  get 'pages/disclaimer'
   get 'pages/terms'
   get 'pages/privacy'
   get '/myprojects' => 'project#list'
