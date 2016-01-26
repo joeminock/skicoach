@@ -44,85 +44,97 @@
   </div>
   <!-- End Index Container -->
   <!-- Start How It Works Container -->
-<section id="how-it-works">
- 
-  <div class="grey lighten-3">
-    <div class="container">
+
+<section id="how_it_works">
+  <div class="container center-align">
+    <h2 class="header center blue-text text-darken-4">How it Works</h2>
     <div class="row">
-        <br><br>
-        <h2 class="header center blue-text text-darken-4">How SkiCoach.me Works</h2>
-        <hr>
-      </div>
-    
-    <div class="section">
-
-      <!--   Icon Section   -->
-      
-      <div class="row">
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center brown-text"><i class="mdi-hardware-computer"></i></h2>
-            <h5 class="center">Step 1. Sign Up</h5>
-
-            <p class="light">SkiCoach.me video lessons cover a range of skiing skills and drills designed to help a resourceful athlete learn more or as a complement to a regular coach lead training program.</p>
-          </div>
-        </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center brown-text"><i class="mdi-av-play-circle-outline"></i></h2>
-            <h5 class="center">Step 2. Select a Lesson</h5>
-
-            <p class="light">Each lesson comes with a comprehensive listing of drills and tasks designed to help you improve your skiing. Once you're ready to go, each lesson is broken down into short, easy to understand video segments that you can watch as many times as you want!</p>
-          </div>
-        </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center brown-text"><i class="mdi-editor-insert-emoticon"></i></h2>
-            <h5 class="center">Step 3. Let's Go!!</h5>
-
-            <p class="light">There's nothing more fulfilling than honing your skills and doing something you've never done before. SkiCoach.me Lessons are available anywhere, anytime. Study them at home or watch them on the lift in between runs.</p>
-          </div>
-        </div>
-      </div>
-    
-       <div class="row center">
-              <%= link_to "Sign Up For My Free Account", new_user_registration_path, class: "btn-large waves-effect waves-light btn indigo accent-4" %>  
-       </div>
+      <div class="col s12 m6 offset-m3">
+        <ul class="tabs">
+          <li class="tab col s6 blue-text text-darken-4"><a href="#if_you_ski">If you ski</a></li>
+          <li class="tab col s6 blue-text text-darken-4"><a href="#if_you_teach">If you teach</a></li>
+        </ul>
       </div>
     </div>
+    <div class="row">
+      <div class="col s12" id="if_you_ski">
+        <div class="row">
+          <div class="col s12 m4">
+            <i class="fa fa-laptop fa-5x blue-text text-darken-4"></i>
+            <h4>Sign Up</h4>
+            <p>SkiCoach.me accounts are free and provide access to video lessons that cover a range of skiing skills and ability levels. </p>
+          </div>
+          <div class="col s12 m4">
+            <i class="fa fa-youtube-play fa-5x blue-text text-darken-4"></i>
+            <h4>Select a Lesson</h4>
+            <p>Each lesson comes with a comprehensive listing of drills and tasks designed to help you improve your skiing.</p>
+          </div>
+          <div class="col s12 m4">
+            <i class="fa fa-tablet fa-5x blue-text text-darken-4"></i>
+            <h4>Watch Anywhere</h4>
+            <p>SkiCoach.me Lessons are available anywhere, anytime. Study them at home or watch them on the lift in between runs.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col s12" id="if_you_teach">
+        <div class="row">
+          <div class="col s12 m4">
+            <i class="fa fa-pie-chart fa-5x blue-text text-darken-4"></i>
+            <h4>Limited Face Time</h4>
+            <p>Turn dead time into productive learning time by having students study lessons on SkiCoach.me in lift lines and on lifts.</p>
+          </div>
+          <div class="col s12 m4">
+            <i class="fa fa-line-chart fa-5x blue-text text-darken-4"></i>
+            <h4>Increased Mastery</h4>
+            <p>Increase athlete mastery of skills during practice, while free-skiing, and on vacations through unlimited access to lessons.</p>
+          </div>
+          <div class="col s12 m4">
+            <i class="fa fa-money fa-5x blue-text text-darken-4"></i>
+            <h4>Make Money</h4>
+            <p>Create and submit your own free or premium lessons and generate supplemental income from lesson purchases! (Coming Soon)</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+          <div class="row center">
+              <%= link_to "Sign Up For My Free Account", new_user_registration_path, class: "btn-large waves-effect waves-light btn indigo accent-4" %>  
+          </div>
+        </div>
     </div>
   </div>
 </section>
 <!-- END How It Works Container -->
-<div class="container">
-<br />
-<h3>Preview Lessons</i></h3>
+<section>
+  <div class="grey lighten-3">
+    <div class="container">
+      <br />
+      <h2 class="header center blue-text text-darken-4">Featured Lessons</i></h2>
 
-	<div class="row" data-no-turbolink>
+    	<div class="row" data-no-turbolink>
 
-		<% @projects.each do |project| %>
-			<%= link_to project do %>
-				<div class="col s12 m6 l4">
-					<div class="card hoverable">
+    		<% @projects.each do |project| %>
+    			<%= link_to project do %>
+    				<div class="col s12 m6 l4">
+    					<div class="card hoverable">
 
-						<div class="card-image">
-							<%= image_tag project.image %>
-						</div>
-							
-						<div class="card-content" style="height: 10em">
-							<p class="flow-text grey-text text-darken-4"><%= project.name %></p>
-							<p class="grey-text text-darken-4"><%= project.s_description %></p>
-							
-						</div>	
-						
-					</div>
-				</div>	
-			<% end %>
-		<% end %>
-	</div>
-</div>
+    						<div class="card-image">
+    							<%= image_tag project.image %>
+    						</div>
+    							
+    						<div class="card-content" style="height: 10em">
+    							<p class="flow-text grey-text text-darken-4"><%= project.name %></p>
+    							<p class="grey-text text-darken-4"><%= project.s_description %></p>
+    							
+    						</div>	
+    						
+    					</div>
+    				</div>	
+    			<% end %>
+    		<% end %>
+    	</div>
+    </div>
+  </div>
+</section>
 
 <% else %> 
 
