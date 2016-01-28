@@ -7,25 +7,59 @@
     	<div class="row" data-no-turbolink>
 
     		<% @projects.each do |project| %>
-    			<%= link_to project do %>
-    				<div class="col s12 m6 l4">
-    					<div class="card hoverable">
+                <% if !project.coming_soon %>
+        			<%= link_to project do %>
+        				<div class="col s12 m6 l4">
+        					<div class="card hoverable">
 
-    						<div class="card-image">
-    							<%= image_tag project.image %>
-    						</div>
-    							
-    						<div class="card-content" style="height: 10em">
-    							<p class="flow-text grey-text text-darken-4"><%= project.name %></p>
-    							<p class="grey-text text-darken-4"><%= project.s_description %></p>
-    							
-    						</div>	
-    						
-    					</div>
-    				</div>	
-    			<% end %>
+        						<div class="card-image">
+        							<%= image_tag project.image %>
+        						</div>
+        							
+        						<div class="card-content" style="height: 10em">
+        							<p class="flow-text grey-text text-darken-4"><%= project.name %></p>
+        							<p class="grey-text text-darken-4"><%= project.s_description %></p>
+        							
+        						</div>	
+        						
+        					</div>
+        				</div>	
+        			<% end %>
+                <% else %>
+         
+                <% end %>
     		<% end %>
     	</div>
+    </div> 
+  </div>     
+    <div class="container">
+        <h2 class="header center blue-text text-darken-4">Coming Soon</i></h2>
+
+        <div class="row" data-no-turbolink>
+
+            <% @projects.each do |project| %>
+                <% if project.coming_soon %>
+                    <div class="col s12 m6 l4">
+                        <div class="card hoverable">
+
+                            <div class="card-image">
+                                <%= image_tag project.image %>
+                            </div>
+                                
+                            <div class="card-content" style="height: 10em">
+                                <p class="flow-text grey-text text-darken-4"><%= project.name %></p>
+                                <p class="grey-text text-darken-4"><%= project.s_description %></p>
+                                
+                            </div>  
+                            
+                        </div>
+                    </div>
+                <% else %>
+                &nbsp;  
+                <% end %>
+            <% end %>
+        </div>
+
     </div>
   </div>
 </section>
