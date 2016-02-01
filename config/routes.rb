@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'pages/disclaimer'
   get 'pages/terms'
   get 'pages/privacy'
+  get 'pages/suggest_a_lesson'
   get '/myprojects' => 'project#list'
   
 
