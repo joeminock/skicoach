@@ -1,9 +1,10 @@
 
       <h2 class="header center blue-text text-darken-4">Lessons</i></h2>
       <h5 class="header center">Join a Lesson, let's <i>Go Skiing</i></h5>
-
-    	<div class="row" data-no-turbolink>
-
+		
+		<div class="container">
+    		<div class="row" data-no-turbolink>
+    		
     		<% @projects.each do |project| %>
                 <% if !project.coming_soon %>
         			<%= link_to project do %>
@@ -25,6 +26,7 @@
         			<% end %>
                 <% end %>
     		<% end %>
+    		</div>
     	</div>
     
   	
