@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
 
   has_many :reviews
 
-  after_create :send_notification
+  #after_create :send_notification
 
  # def send_notification
  #  MyMailer.new_user(self).deliver
